@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL") // IGNORE THIS ERROR, IT WORKS FINE!
+}
+
+
+model User {
+  id          Int       @id @default(autoincrement())
+  username    String    @unique
+  password    String
+  name        String
+  surname     String
+  phone       String?   // nullable
+  address     String?   // nullable
+  institution String?   // nullable
+  department  String?   // nullable
+
+  // ["a@example.com", "b@example.com"] IS THIS OK? 
+  emailList   String[]
+
+  // Kullanıcı seviyesi ve tipi (iç müşteri / dış müşteri / admin vs.)
+  userLevel   Int       // 1: Lab Specialist, 2: Lab Coordinator, ...
+  type        Int       // THEY ARE DESIGNED AS INTEGERS, CAN I CHANGE TO ENUM?
+
+  active      Boolean   @default(true)
+  recycle     Boolean   @default(false) // WHAT IS THIS?
+
+  lastLogin   DateTime? // nullable
+  registerDate DateTime @default(now())
+
+  // RELATIONS !!!
+}
