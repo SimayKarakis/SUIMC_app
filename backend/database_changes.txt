@@ -1,0 +1,31 @@
+# USER 
+
+    2 email alanı eklendi (ayrı ayrı, ilki zorunlu alan, ikincisi zorunlu değil)
+    recycle eklenmedi (ne işe yarıyor bilmiyorum)
+
+    type eklenmedi, sadece userLevel eklendi -->
+
+    userLevel enum olarak eklendi:
+        case 1: "Lab Specialist";
+        case 2: "Lab Coordinator"; 
+        case 3: "Lab Leader";
+        case 4: "Admin";
+        case 5: "Internal Customer";
+        case 6: "External Customer";
+
+    ## relations:
+        Entity.Workpackage.company comp;
+        List<Entity.Talep.Proje_Kod> projekod;
+
+
+# TALEP
+
+    TalepTur çıkarıldı (müşteri isteği üzerine)
+
+
+# LABORATUVAR
+
+# CİHAZ
+
+
+

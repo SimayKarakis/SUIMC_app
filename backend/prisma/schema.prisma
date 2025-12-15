@@ -14,30 +14,212 @@ datasource db {
   url      = env("DATABASE_URL") // IGNORE THIS ERROR, IT WORKS FINE!
 }
 
+// ------------------------------------------------------------
+
+enum UserLevel {
+  LAB_SPECIALIST
+  LAB_COORDINATOR
+  LAB_LEADER
+  ADMIN
+  INTERNAL_CUSTOMER
+  EXTERNAL_CUSTOMER
+}
+
+enum CompanyType {
+  INDIVIDUAL
+  PUBLIC_INSTITUTION
+  PRIVATE_INSTITUTION
+  UNIVERSITY
+  OTHER
+}
+
+enum ReservationPriority {
+  LOW
+  NORMAL
+  URGENT
+}
+
+enum ReservationStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
 
 model User {
   id          Int       @id @default(autoincrement())
   username    String    @unique
   password    String
-  name        String
-  surname     String
+  firstname   String
+  lastname    String
+
   phone       String?   // nullable
   address     String?   // nullable
   institution String?   // nullable
   department  String?   // nullable
 
-  // ["a@example.com", "b@example.com"] IS THIS OK? 
-  emailList   String[]
+  email1      String
+  email2      String?
 
-  // Kullanıcı seviyesi ve tipi (iç müşteri / dış müşteri / admin vs.)
-  userLevel   Int       // 1: Lab Specialist, 2: Lab Coordinator, ...
-  type        Int       // THEY ARE DESIGNED AS INTEGERS, CAN I CHANGE TO ENUM?
+  userLevel   UserLevel
 
-  active      Boolean   @default(true)
-  recycle     Boolean   @default(false) // WHAT IS THIS?
-
+  isActive      Boolean   @default(true)
   lastLogin   DateTime? // nullable
   registerDate DateTime @default(now())
 
-  // RELATIONS !!!
+  // RELATIONS 
+  companyId    Int?
+  company      Company?  @relation(fields: [companyId], references: [id])
+
+  projectCodes     ProjectCode[]
+
+  labAssignments LabPersonnel[]
+
+  samples Sample[]
+
+   // reservations where this user is the customer
+  customerReservations Reservation[] @relation("ReservationCustomer")
+
+  // reservations where this user is the assigned personnel/technician
+  assignedReservations Reservation[] @relation("ReservationPersonnel")
 }
+
+model Company {
+  id          Int     @id @default(autoincrement())
+  name        String?
+  website        String?
+  industry    String?
+  companyType CompanyType
+
+  users       User[]
+}
+
+model ProjectCode {
+  id         Int      @id @default(autoincrement())
+  code       String   @unique
+  description String?
+  createdAt  DateTime @default(now())
+
+  userId     Int
+  user       User     @relation(fields: [userId], references: [id])
+
+  reservations Reservation[]
+}
+
+model Laboratory {
+  id   Int    @id @default(autoincrement())
+  code String @unique
+  name String
+
+  // relations
+  devices     Device[]
+  personnel   LabPersonnel[]
+}
+
+model LabPersonnel {
+  id           Int        @id @default(autoincrement())
+  laboratoryId Int
+  userId       Int
+
+  laboratory   Laboratory @relation(fields: [laboratoryId], references: [id])
+  user         User       @relation(fields: [userId], references: [id])
+
+  @@unique([laboratoryId, userId])
+}
+
+model Device {
+  id            Int       @id @default(autoincrement())
+  name          String
+  serialNo      String?
+  certificateInfo String?
+  
+  suCode         String?
+  ktmmCode       String?
+
+  // relations: her cihaz bir lab’a bağlı
+  laboratoryId  Int
+  laboratory    Laboratory @relation(fields: [laboratoryId], references: [id])
+
+  reservations     Reservation[]
+}
+
+model Request {
+  id             Int      @id @default(autoincrement())
+  customerName   String?
+  title          String?
+  code           String?
+  requestNo  String?
+
+  samples        Sample[]
+  reservations     Reservation[]
+}
+
+model Sample {
+  id         Int      @id @default(autoincrement())
+  name       String?
+  total      Decimal? @db.Decimal(18,2)
+  orderIndex Int?
+  barcode    String?
+
+  requestId  Int
+  request    Request  @relation(fields: [requestId], references: [id])
+
+  userId     Int?
+  user       User?    @relation(fields: [userId], references: [id])
+
+  serviceTests ServiceTest[]
+}
+
+model ServiceTest {
+  id        Int     @id @default(autoincrement())
+  name      String
+
+  sampleId  Int
+  sample    Sample  @relation(fields: [sampleId], references: [id])
+
+  // one service/test can have many reservation attempts
+  reservations Reservation[]
+}
+
+model Reservation {
+  id           Int       @id @default(autoincrement())
+
+  customerId   Int
+  customer     User      @relation("ReservationCustomer", fields: [customerId], references: [id])
+
+  projectCodeId Int?
+  projectCode   ProjectCode? @relation(fields: [projectCodeId], references: [id])
+
+  requestId    Int
+  request      Request   @relation(fields: [requestId], references: [id])
+
+  priority     ReservationPriority @default(NORMAL)
+  status       ReservationStatus   @default(PENDING)
+
+  serviceBarcode String?
+  offerNumber    String?
+
+  // reservation is for a specific service/test
+  serviceTestId Int
+  serviceTest   ServiceTest @relation(fields: [serviceTestId], references: [id])
+
+  // assignment info per service/test reservation
+  deviceId     Int?
+  device       Device?   @relation(fields: [deviceId], references: [id])
+
+  personnelId  Int?
+  personnel    User?     @relation("ReservationPersonnel", fields: [personnelId], references: [id])
+
+  notes        String?
+
+  startAt      DateTime?
+  endAt        DateTime?
+
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime? @updatedAt
+
+  @@index([requestId])
+  @@index([customerId])
+  @@index([serviceTestId])
+}
+
