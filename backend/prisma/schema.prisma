@@ -117,6 +117,7 @@ model Laboratory {
   // relations
   devices     Device[]
   personnel   LabPersonnel[]
+  tests    LabTest[]
 }
 
 model LabPersonnel {
@@ -130,6 +131,22 @@ model LabPersonnel {
   @@unique([laboratoryId, userId])
 }
 
+model LabTest {
+  id            Int       @id @default(autoincrement())
+
+  // relation to Laboratory
+  laboratoryId  Int
+  laboratory    Laboratory @relation(fields: [laboratoryId], references: [id])
+
+  testGroup     String      // Test Grubu
+  testName   String         // Test/Hizmet Adı
+  unit          String      // Birim
+  testCost   Decimal?   @db.Decimal(18, 2) // Hizmet Maliyeti
+  testPrice  Decimal?   @db.Decimal(18, 2) // Hizmet Bedeli
+  KKCode        String?    
+}
+// npx prisma migrate dev --name add_lab_service_table
+
 model Device {
   id            Int       @id @default(autoincrement())
   deviceNumber    Int?      @unique
@@ -141,7 +158,7 @@ model Device {
   suCode         String?
   ktmmCode       String?
 
-  // relations: her cihaz bir lab’a bağlı
+  // relations: each device is connected to a lab
   laboratoryId  Int
   laboratory    Laboratory @relation(fields: [laboratoryId], references: [id])
 
