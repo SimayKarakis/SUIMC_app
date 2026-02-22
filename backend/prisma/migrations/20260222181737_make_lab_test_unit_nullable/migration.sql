@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "LabTest" ALTER COLUMN "unit" DROP NOT NULL;

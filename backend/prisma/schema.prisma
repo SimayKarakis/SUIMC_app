@@ -142,10 +142,10 @@ model LabTest {
 
   testGroup     String      // Test Grubu
   testName   String         // Test/Hizmet Adı
-  unit          String      // Birim
+  unit          String?      // Birim
   testCost   Decimal?   @db.Decimal(18, 2) // Hizmet Maliyeti
   testPrice  Decimal?   @db.Decimal(18, 2) // Hizmet Bedeli
-  KKCode        String?    
+  KKCode        String?    // Can be in the form  "KR017 / KR018"
 }
 // npx prisma migrate dev --name add_lab_service_table
 
