@@ -1,0 +1,77 @@
+.rl-page { padding: 24px; }
+
+.rl-header{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:14px;
+}
+.rl-breadcrumb{ font-size:14px; color:#666; display:flex; gap:8px; align-items:center; }
+.rl-crumb.active{ color:#111; font-weight:600; }
+.rl-sep{ color:#aaa; }
+
+.rl-actionsTop{ display:flex; gap:10px; }
+.rl-topBtn{
+  padding:8px 12px; border:1px solid #ddd; background:#fff; border-radius:10px;
+  cursor:pointer;
+}
+
+.rl-card{
+  background:#fff; border:1px solid #e6e6e6; border-radius:14px;
+  padding:14px; margin-bottom:18px;
+}
+
+.rl-filterRow{
+  display:grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
+  gap:14px;
+  align-items:end;
+}
+.rl-field{ display:flex; flex-direction:column; gap:6px; }
+.rl-label{ font-size:12px; color:#444; }
+.rl-input, .rl-select{
+  height:36px; border:1px solid #d8d8d8; border-radius:8px; padding:0 10px;
+}
+
+.rl-buttons{ display:flex; gap:8px; justify-content:flex-end; }
+.rl-btn{
+  height:34px; border-radius:8px; border:0; cursor:pointer; padding:0 12px;
+}
+.rl-btn.filter{ background:#333; color:#fff; }
+.rl-btn.clear{ background:#6b6b6b; color:#fff; }
+.rl-btn.excel{ background:#7aa6c8; color:#fff; }
+
+.rl-tableWrap{ background:#fff; border-radius:14px; }
+.rl-table{
+  width:100%; border-collapse:collapse; font-size:13px;
+}
+.rl-table thead th{
+  text-align:left; padding:12px 10px; border-bottom:1px solid #eee; color:#222;
+}
+.rl-table tbody td{
+  padding:12px 10px; border-bottom:1px solid #f0f0f0; vertical-align:top;
+}
+.rl-empty{ text-align:center; padding:24px 10px; color:#666; }
+
+.rl-actionsCol{ width:120px; text-align:right; }
+.rl-miniBtn{
+  border:0; border-radius:8px; padding:6px 10px; cursor:pointer; margin-left:6px;
+  font-size:12px;
+}
+.rl-miniBtn.detail{ background:#7aa6c8; color:#fff; }
+.rl-miniBtn.delete{ background:#333; color:#fff; }
+
+.rl-badge{
+  display:inline-block; padding:3px 8px; border-radius:6px; font-size:12px;
+}
+.rl-badge.warn{ background:#f3c8c8; color:#7a1f1f; }
+.rl-titleCell{ max-width:240px; }
+.rl-mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+
+.rl-pager{
+  display:flex; gap:10px; justify-content:flex-end;
+  padding:14px 0;
+}
+.rl-pill{
+  border:0; border-radius:10px; padding:6px 10px; cursor:pointer;
+  background:#5b5b5b; color:#fff; font-size:12px;
+}
+.rl-pill.green{ background:#3e8b52; }

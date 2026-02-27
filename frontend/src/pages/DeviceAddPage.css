@@ -1,0 +1,96 @@
+.da-page { padding: 24px; width: 100%; box-sizing: border-box; }
+
+.da-header{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom: 14px; width:100%;
+}
+
+.da-breadcrumb{ display:flex; gap:10px; color:#7b7b7b; font-size:14px; }
+.da-crumb.active{ color:#222; font-weight:700; }
+.da-sep{ opacity:.6; }
+
+.da-actionsTop{ display:flex; gap:10px; }
+.da-topBtn{
+  height:34px; border:1px solid #d9d9d9; background:#fff;
+  border-radius:10px; padding:0 12px; cursor:pointer; font-weight:600;
+}
+
+.da-card{
+  width:100%;
+  max-width: 1100px;
+  background:#fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.08);
+  overflow:hidden;
+}
+
+.da-cardHeader{
+  background:#d9d9d9;
+  padding: 14px 16px;
+  font-size: 22px;
+  font-weight: 800;
+  color:#2a2a2a;
+}
+
+.da-form{ padding: 18px 16px 22px; }
+
+.da-gridTop{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 18px 26px;
+}
+
+.da-gridBottom{
+  margin-top: 18px;
+  display:grid;
+  grid-template-columns: 1.25fr 1fr 1fr;
+  gap: 18px 26px;
+  align-items:start;
+}
+
+.da-field{ display:flex; flex-direction:column; gap:8px; }
+
+.da-label{ font-size: 14px; color:#333; }
+
+.da-input{
+  height: 36px;
+  border: 1px solid #d8d8d8;
+  border-radius: 4px;
+  padding: 0 12px;
+  outline: none;
+}
+
+.da-textarea{
+  min-height: 110px;
+  border: 1px solid #d8d8d8;
+  border-radius: 4px;
+  padding: 10px 12px;
+  resize: none;
+  outline: none;
+}
+
+.da-buttons{
+  display:flex;
+  justify-content:flex-end;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.da-btn{
+  height: 40px;
+  border:none;
+  border-radius: 10px;
+  padding: 0 16px;
+  font-weight: 800;
+  cursor:pointer;
+  color:#fff;
+}
+
+.da-btn.save{ background:#5a6b70; }
+.da-btn.cancel{ background:#5b3a3a; }
+
+@media (max-width: 1000px){
+  .da-card{ max-width:none; }
+  .da-gridTop{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .da-gridBottom{ grid-template-columns: 1fr; }
+}

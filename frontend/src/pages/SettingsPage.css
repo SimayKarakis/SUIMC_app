@@ -1,0 +1,108 @@
+.st-page {
+  padding: 22px 24px;
+}
+
+.st-breadcrumbRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.st-link {
+  color: #2b6cb0;
+  cursor: pointer;
+}
+
+.st-link:hover {
+  text-decoration: underline;
+}
+
+.st-sep {
+  color: #999;
+}
+
+.st-current {
+  color: #777;
+}
+
+.st-topLine {
+  height: 1px;
+  background: #e5e5e5;
+  margin-bottom: 16px;
+}
+
+.st-form {
+  max-width: 1050px;
+}
+
+.st-gridTop {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1.15fr 0.45fr 1.35fr;
+  gap: 18px;
+  align-items: end;
+  margin-bottom: 18px;
+}
+
+.st-gridBottom {
+  display: grid;
+  grid-template-columns: 0.75fr 0.75fr 0.75fr;
+  gap: 18px;
+  align-items: end;
+  margin-bottom: 18px;
+}
+
+.st-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.st-label {
+  font-size: 13px;
+  color: #555;
+}
+
+.st-input {
+  height: 30px;
+  border: 1px solid #d7d7d7;
+  border-radius: 4px;
+  padding: 0 10px;
+  outline: none;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+
+.st-input:focus {
+  border-color: #b9c2cc;
+}
+
+.st-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.st-btnSave {
+  background: #6c7a7a;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.st-btnSave:hover {
+  filter: brightness(0.95);
+}
+
+.st-btnGhost {
+  background: transparent;
+  border: 1px solid #d7d7d7;
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #444;
+}

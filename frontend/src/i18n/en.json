@@ -1,0 +1,386 @@
+{
+  "login": {
+    "pageTitle": "Login Screen",
+    "header": "Login",
+    "username": "Username",
+    "password": "Password",
+    "register": "Register",
+    "signIn": "Sign In",
+    "forgot": "Forgot your password?",
+    "turkish": "Turkish",
+    "english": "English",
+    "resetTitle": "Password Reset",
+    "resetDescription": "Enter your e-mail address to reset your password.",
+    "emailLabel": "E-mail address",
+    "sendReset": "Send reset link",
+    "cancel": "Cancel",
+    "resetSent": "If an account exists for this email, a reset link has been sent.",
+    "enterEmail": "Please enter your email address first."
+  },
+  "register": {
+    "typeScreenTitle": "Select Type",
+    "mainTitle": "Register Screen",
+    "selectTypeHeader": "Select type",
+    "externalCustomer": "External Customer",
+    "internalCustomer": "Internal Customer",
+    "backToLogin": "<< Back to login screen",
+    "companySection": "USER / COMPANY INFORMATION",
+    "companyName": "Company Name",
+    "companyWebsite": "Company Website",
+    "companyType": "Company Type",
+    "companyIndustry": "Company Industry",
+    "choose": "Select",
+    "regHeader": "Registration",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone",
+    "universityOptional": "If your institution is a university (optional)",
+    "back": "<< Back"
+  },
+  "home": {
+    "pageTitle": "1 - Home",
+    "breadcrumb": "Home /",
+    "kordsaMonitor": "KordSA Monitor",
+    "counter": "Counter",
+    "date": "Date",
+    "lastUpdate": "Last update:",
+    "minutesAgo": "minutes ago",
+    "update": "Update",
+    "cancel": "Cancel",
+    "menu": {
+      "home": "Home",
+      "users": "Users",
+      "userList": "User List",
+      "addUser": "Add User",
+      "requests": "Requests",
+      "requestList": "Request List",
+      "reports": "Reports",
+      "reservationReport": "Reservation & Service Report",
+      "devices": "Devices",
+      "deviceList": "Device List",
+      "addDevice": "Add Device",
+      "reservations": "Reservations",
+      "reservationList": "Reservation List",
+      "makeReservation": "Make Reservation",
+      "cost": "Cost",
+      "testPricing": "Test Pricing",
+      "system": "System Settings",
+      "rules": "Rules",
+      "languages": "Languages",
+      "logs": "Logs",
+      "logout": "Log out",
+      "settings": "System Settings"
+    }
+  },
+  "common": {
+    "all": "All",
+    "search": "Search",
+    "excel": "Excel",
+    "active": "Active",
+    "passive": "Passive",
+    "noResults": "No results found",
+    "cancel": "Cancel",
+    "update": "Update",
+    "ok": "OK",
+    "choose": "Select",
+    "filter": "Filter",
+    "clearFilter": "Clear filter",
+    "prev": "<< Prev",
+    "next": "Next >>",
+    "total": "Total {{count}}"
+  },
+  "sidebar": {
+    "users": "Users"
+  },
+  "users": {
+    "list": {
+      "title": "User List",
+      "addUser": "Add User",
+      "excelNotReady": "Excel export is not wired yet.",
+      "addUserNotReady": "Navigation to add user page is not wired yet.",
+      "filters": {
+        "userType": "User Type",
+        "status": "Status",
+        "name": "User Name",
+        "namePlaceholder": "User Name"
+      },
+      "customerType": {
+        "internal": "Internal Customer",
+        "external": "External Customer"
+      },
+      "table": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "username": "Username",
+        "company": "Company",
+        "customerType": "Customer Type",
+        "status": "Status",
+        "actions": ""
+      },
+      "action": {
+        "view": "View",
+        "edit": "Edit",
+        "delete": "Delete"
+      }
+    },
+    "detail": {
+      "title": "User Detail",
+      "updated": "User updated (mock).",
+      "fullName": "Name Surname",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "username": "Username",
+      "password": "Password",
+      "email": "Email",
+      "customerType": "Customer Type",
+      "projectCode": "Project Code",
+      "phone": "Phone",
+      "address": "Address",
+      "all": "All",
+      "allOption": "Sabanci University (Istanbul)",
+      "department": "User Department",
+      "lastLogin": "Last Login",
+      "companySection": "USER COMPANY INFORMATION",
+      "companyName": "Company Name",
+      "companyWebsite": "Company Website",
+      "companyIndustry": "Company Industry",
+      "companyType": "Company Type",
+      "industry": {
+        "education": "Education",
+        "industry": "Industry",
+        "other": "Other"
+      },
+      "type": {
+        "university": "University",
+        "company": "Company",
+        "other": "Other"
+      }
+    }
+  },
+  "devices": {
+    "breadcrumbRoot": "Devices",
+    "list": {
+      "title": "Device List",
+      "excelNotReady": "Excel export is not wired yet.",
+      "filters": {
+        "deviceName": "Device Name",
+        "deviceModel": "Device Model",
+        "serialNo": "Serial No",
+        "suCode": "SU Code",
+        "ktmmCode": "KTMM Code",
+        "lab": "Device Laboratory"
+      },
+      "labOptions": {
+        "all": "All",
+        "lab1": "Lab 1",
+        "lab2": "Lab 2"
+      },
+      "actions": {
+        "filter": "Filter",
+        "clear": "Clear filter"
+      },
+      "table": {
+        "name": "Name",
+        "model": "Model",
+        "certificate": "Certificate Info",
+        "serialNo": "Serial No",
+        "suCode": "SU Code",
+        "ktmmCode": "KTMM Code"
+      }
+    },
+    "add": {
+      "title": "Add Device",
+      "cardTitle": "New Device Registration",
+      "savedMock": "Device saved (mock).",
+      "validation": {
+        "required": "Please fill in the required fields."
+      },
+      "fields": {
+        "name": "Name",
+        "model": "Model",
+        "serialNo": "Serial No",
+        "certificateInfo": "Certificate Info",
+        "suCode": "SU CODE",
+        "ktmmCode": "KTMM CODE"
+      },
+      "actions": {
+        "save": "Save"
+      }
+    }
+  },
+  "requests": {
+    "breadcrumbRoot": "Requests",
+    "list": {
+      "title": "Request List",
+      "filters": {
+        "name": "Search name",
+        "namePlaceholder": "Search name",
+        "startDate": "Start date",
+        "endDate": "End date",
+        "status": "Status",
+        "statusPlaceholder": "Select",
+        "userType": "User type",
+        "userTypePlaceholder": "Select type"
+      },
+      "actions": {
+        "filter": "Filter",
+        "clear": "Clear filter"
+      },
+      "table": {
+        "date": "Date",
+        "requestNo": "Request No",
+        "customer": "Customer",
+        "company": "Company",
+        "projectCode": "Project Code",
+        "offerNo": "Offer No",
+        "title": "Title",
+        "priority": "Priority",
+        "type": "Type",
+        "status": "Status"
+      },
+      "actionsRow": {
+        "detail": "Detail",
+        "delete": "Delete"
+      },
+      "buttons": {
+        "detail": "Detail",
+        "delete": "Delete"
+      },
+      "priority": {
+        "normal": "Normal priority",
+        "high": "High priority"
+      },
+      "type": {
+        "productionPackage": "Production package",
+        "workPackage": "Work package"
+      },
+      "status": {
+        "waitingApprovalLeader": "Waiting approval (Leader)",
+        "waiting": "Waiting",
+        "approved": "Approved",
+        "cancelled": "Cancelled"
+      },
+      "badges": {
+        "notFormed": "Not formed"
+      },
+      "pagination": {
+        "prev": "<< Prev",
+        "next": "Next >>",
+        "total": "Total {{count}}"
+      }
+    }
+  },
+  "reservations": {
+    "breadcrumbRoot": "Reservations",
+    "list": {
+      "title": "Reservation List",
+      "filters": {
+        "startDate": "Start date",
+        "endDate": "End date",
+        "keyword": "Keyword",
+        "keywordPlaceholder": "yasar",
+        "status": "Status",
+        "statusPlaceholder": "Select"
+      },
+      "status": {
+        "waiting": "Waiting",
+        "approved": "Approved",
+        "cancelled": "Cancelled"
+      },
+      "table": {
+        "workPackage": "Work package",
+        "offerNo": "Offer No",
+        "projectCode": "Project Code",
+        "barcode": "Barcode",
+        "sampleName": "Sample name",
+        "deviceCategory": "Device category",
+        "test": "Test",
+        "expert": "Expert",
+        "startDate": "Start date"
+      },
+      "actions": {
+        "detail": "Detail",
+        "delete": "Delete"
+      }
+    },
+    "make": {
+      "title": "Make Reservation",
+      "statusOpen": "Reservation Open",
+      "breadcrumbRoot": "Reservations",
+      "fields": {
+        "packageType": "Package type",
+        "customer": "Customer",
+        "pack": "Package",
+        "priority": "Priority"
+      },
+      "packageType": {
+        "work": "Work package",
+        "production": "Production package"
+      },
+      "select": {
+        "expert": "Select expert",
+        "device": "Select device"
+      },
+      "selectAll": "Select all",
+      "placeholders": {
+        "start": "Start date/time",
+        "end": "End date/time"
+      },
+      "priority": {
+        "normal": "Normal priority",
+        "high": "High priority"
+      },
+      "actions": {
+        "close": "Close"
+      }
+    }
+  },
+  "settings": {
+    "breadcrumbRoot": "System Settings",
+    "title": "System Settings",
+    "savedMock": "Settings saved (mock).",
+    "fields": {
+      "email": "E-mail",
+      "emailPassword": "E-mail password",
+      "emailServer": "E-mail server",
+      "port": "Port",
+      "adminMail": "Admin mail",
+      "urgencyRate": "Urgency rate",
+      "euroRate": "EUR rate",
+      "usdRate": "USD rate"
+    },
+    "actions": {
+      "save": "Save"
+    }
+  },
+  "cost": {
+    "breadcrumbRoot": "Cost",
+    "testPricing": {
+      "title": "Test Pricing",
+      "filters": {
+        "lab": "Device laboratories",
+        "labPlaceholder": "Select",
+        "keyword": "Keyword",
+        "keywordPlaceholder": "e.g. 3039"
+      },
+      "actions": {
+        "filter": "Filter",
+        "excel": "Excel"
+      },
+      "table": {
+        "deviceCategory": "Device category",
+        "name": "Name",
+        "batchInfo": "Batch info",
+        "cost": "Cost",
+        "actions": ""
+      },
+      "rowActions": {
+        "link": "Link",
+        "copy": "Copy",
+        "edit": "Edit",
+        "delete": "Delete"
+      }
+    }
+  }
+}

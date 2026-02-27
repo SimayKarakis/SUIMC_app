@@ -1,0 +1,28 @@
+.bc {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #6b6b6b;
+}
+
+.bc-sep {
+  color: #b0b0b0;
+}
+
+.bc-link {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: #2b6cb0;
+  font-size: 14px;
+}
+
+.bc-link:hover {
+  text-decoration: underline;
+}
+
+.bc-text.active {
+  color: #3a3a3a;
+}

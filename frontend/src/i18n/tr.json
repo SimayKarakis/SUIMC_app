@@ -1,0 +1,386 @@
+{
+  "login": {
+    "pageTitle": "Login Screen",
+    "header": "Giriş",
+    "username": "Kullanıcı Adı",
+    "password": "Şifre",
+    "register": "Kayıt",
+    "signIn": "Giriş",
+    "forgot": "Parolanızı mı unuttunuz?",
+    "turkish": "Türkçe",
+    "english": "İngilizce",
+    "resetTitle": "Şifre Sıfırlama",
+    "resetDescription": "Şifrenizi sıfırlamak için e-posta adresinizi yazın.",
+    "emailLabel": "E-posta adresi",
+    "sendReset": "Sıfırlama linki gönder",
+    "cancel": "İptal",
+    "resetSent": "Eğer bu e-posta ile bir hesap varsa, sıfırlama bağlantısı gönderildi.",
+    "enterEmail": "Lütfen önce e-posta adresinizi girin."
+  },
+  "register": {
+    "typeScreenTitle": "Tip seç",
+    "mainTitle": "Kayıt Ekranı",
+    "selectTypeHeader": "Tip seç",
+    "externalCustomer": "Dış Müşteri",
+    "internalCustomer": "İç Müşteri",
+    "backToLogin": "<< Login ekranına dön",
+    "companySection": "KULLANICI / ŞİRKET BİLGİLERİ",
+    "companyName": "Şirket Adı",
+    "companyWebsite": "Şirket Web Sitesi",
+    "companyType": "Şirket Türü",
+    "companyIndustry": "Şirket Endüstrisi",
+    "choose": "Seçiniz",
+    "regHeader": "Kayıt",
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "universityOptional": "Kurumunuz üniversite ise (isteğe bağlı)",
+    "back": "<< Geri"
+  },
+  "home": {
+    "pageTitle": "1 - Anasayfa",
+    "breadcrumb": "Anasayfa /",
+    "kordsaMonitor": "KordSA Monitor",
+    "counter": "ZSAYAC",
+    "date": "ZTALTARİH",
+    "lastUpdate": "Son güncelleme:",
+    "minutesAgo": "dakika önce",
+    "update": "Güncelleştir",
+    "cancel": "İptal",
+    "menu": {
+      "home": "Anasayfa",
+      "users": "Kullanıcılar",
+      "userList": "Kullanıcı Listesi",
+      "addUser": "Kullanıcı Ekle",
+      "requests": "Talepler",
+      "requestList": "Talep Listesi",
+      "reports": "Raporlar",
+      "reservationReport": "Rezervasyon & Hizmet Raporu",
+      "devices": "Cihazlar",
+      "deviceList": "Cihaz Listesi",
+      "addDevice": "Cihaz Ekle",
+      "reservations": "Rezervasyonlar",
+      "reservationList": "Rezervasyon Listesi",
+      "makeReservation": "Rezervasyon Yap",
+      "cost": "Maliyet",
+      "testPricing": "Test Fiyatlandırma",
+      "system": "Sistem Ayarları",
+      "rules": "Kurallar",
+      "languages": "Diller",
+      "logs": "Logs",
+      "logout": "Çıkış Yap",
+      "settings": "Sistem Ayarları"
+    }
+  },
+  "common": {
+    "all": "Tümü",
+    "search": "Ara",
+    "excel": "Excel",
+    "active": "Aktif",
+    "passive": "Pasif",
+    "noResults": "Sonuç bulunamadı",
+    "cancel": "İptal",
+    "update": "Güncelleştir",
+    "ok": "Tamam",
+    "choose": "Seçiniz",
+    "filter": "Filtre",
+    "clearFilter": "Filtre temizle",
+    "prev": "<< Önceki",
+    "next": "Sonraki >>",
+    "total": "Toplam {{count}}"
+  },
+  "sidebar": {
+    "users": "Kullanıcılar"
+  },
+  "users": {
+    "list": {
+      "title": "Kullanıcı Listesi",
+      "addUser": "Kullanıcı Ekle",
+      "excelNotReady": "Excel export henüz bağlı değil.",
+      "addUserNotReady": "Kullanıcı ekleme sayfasına yönlendirme henüz bağlı değil.",
+      "filters": {
+        "userType": "Kullanıcı Tipi",
+        "status": "Durum",
+        "name": "Kullanıcı Adı",
+        "namePlaceholder": "Kullanıcı Adı"
+      },
+      "customerType": {
+        "internal": "İç Müşteri",
+        "external": "Dış Müşteri"
+      },
+      "table": {
+        "firstName": "Adı",
+        "lastName": "Soyadı",
+        "username": "Kullanıcı Adı",
+        "company": "Firma",
+        "customerType": "Müşteri Tipi",
+        "status": "Durum",
+        "actions": ""
+      },
+      "action": {
+        "view": "İncele",
+        "edit": "Düzenle",
+        "delete": "Sil"
+      }
+    },
+    "detail": {
+      "title": "Kullanıcı Detayı",
+      "updated": "Kullanıcı güncellendi (mock).",
+      "fullName": "Ad Soyad",
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "username": "Kullanıcı Adı",
+      "password": "Kullanıcı Şifresi",
+      "email": "E-posta",
+      "customerType": "Müşteri Tipi",
+      "projectCode": "Proje Kodu",
+      "phone": "Telefon",
+      "address": "Adres",
+      "all": "Tümü",
+      "allOption": "Sabancı Üniversitesi (İstanbul)",
+      "department": "Kullanıcı Departmanı",
+      "lastLogin": "Uygulamaya Son Giriş",
+      "companySection": "KULLANICI ŞİRKET BİLGİLERİ",
+      "companyName": "Şirket Adı",
+      "companyWebsite": "Şirket Web Sitesi",
+      "companyIndustry": "Şirket Endüstrisi",
+      "companyType": "Şirket Türü",
+      "industry": {
+        "education": "Eğitim",
+        "industry": "Sanayi",
+        "other": "Diğer"
+      },
+      "type": {
+        "university": "Üniversite",
+        "company": "Şirket",
+        "other": "Diğer"
+      }
+    }
+  },
+  "devices": {
+    "breadcrumbRoot": "Cihazlar",
+    "list": {
+      "title": "Cihaz Listesi",
+      "excelNotReady": "Excel export henüz bağlı değil.",
+      "filters": {
+        "deviceName": "Cihaz Adı",
+        "deviceModel": "Cihaz Modeli",
+        "serialNo": "Seri No",
+        "suCode": "SU Kod",
+        "ktmmCode": "KTMM Kod",
+        "lab": "Cihaz Laboratuvarı"
+      },
+      "labOptions": {
+        "all": "Tümü",
+        "lab1": "Lab 1",
+        "lab2": "Lab 2"
+      },
+      "actions": {
+        "filter": "Filtre",
+        "clear": "Filtre temizle"
+      },
+      "table": {
+        "name": "Adı",
+        "model": "Modeli",
+        "certificate": "Sertifika Bilgisi",
+        "serialNo": "Seri No",
+        "suCode": "SU Kod",
+        "ktmmCode": "KTMM Kod"
+      }
+    },
+    "add": {
+      "title": "Cihaz Ekle",
+      "cardTitle": "Yeni Cihaz Kaydı",
+      "savedMock": "Cihaz kaydedildi (mock).",
+      "validation": {
+        "required": "Lütfen zorunlu alanları doldurunuz."
+      },
+      "fields": {
+        "name": "Adı",
+        "model": "Modeli",
+        "serialNo": "Seri No",
+        "certificateInfo": "Sertifika Bilgisi",
+        "suCode": "SU KOD",
+        "ktmmCode": "KTMM KOD"
+      },
+      "actions": {
+        "save": "Kaydet"
+      }
+    }
+  },
+  "requests": {
+    "breadcrumbRoot": "Talepler",
+    "list": {
+      "title": "Talep Listesi",
+      "filters": {
+        "name": "İsim ara",
+        "namePlaceholder": "İsim ara",
+        "startDate": "Başlangıç tarih",
+        "endDate": "Bitiş tarih",
+        "status": "Durum",
+        "statusPlaceholder": "Seçiniz",
+        "userType": "Kullanıcı tip",
+        "userTypePlaceholder": "Tip seç"
+      },
+      "actions": {
+        "filter": "Filtre",
+        "clear": "Filtre temizle"
+      },
+      "table": {
+        "date": "Tarih",
+        "requestNo": "Talep No",
+        "customer": "Müşteri",
+        "company": "Firma",
+        "projectCode": "Proje Kodu",
+        "offerNo": "Teklif No",
+        "title": "Başlık",
+        "priority": "Öncelik",
+        "type": "Tip",
+        "status": "Durum"
+      },
+      "actionsRow": {
+        "detail": "Detay",
+        "delete": "Sil"
+      },
+      "buttons": {
+        "detail": "Detay",
+        "delete": "Sil"
+      },
+      "priority": {
+        "normal": "Normal Öncelik",
+        "high": "Yüksek Öncelik"
+      },
+      "type": {
+        "productionPackage": "Üretim paketi",
+        "workPackage": "İş paketi"
+      },
+      "status": {
+        "waitingApprovalLeader": "Talep Onayı Bekliyor (Lider)",
+        "waiting": "Bekliyor",
+        "approved": "Onaylandı",
+        "cancelled": "İptal"
+      },
+      "badges": {
+        "notFormed": "Not formed"
+      },
+      "pagination": {
+        "prev": "<< Önceki",
+        "next": "Sonraki >>",
+        "total": "Toplam {{count}}"
+      }
+    }
+  },
+  "reservations": {
+    "breadcrumbRoot": "Rezervasyonlar",
+    "list": {
+      "title": "Rezervasyon listesi",
+      "filters": {
+        "startDate": "Başlangıç tarih",
+        "endDate": "Bitiş tarih",
+        "keyword": "Anahtar kelime",
+        "keywordPlaceholder": "yaşar",
+        "status": "Durum",
+        "statusPlaceholder": "Seçiniz"
+      },
+      "status": {
+        "waiting": "Bekliyor",
+        "approved": "Onaylandı",
+        "cancelled": "İptal"
+      },
+      "table": {
+        "workPackage": "İş paketi",
+        "offerNo": "Teklif No",
+        "projectCode": "Proje Kodu",
+        "barcode": "Barkod",
+        "sampleName": "Numune ad",
+        "deviceCategory": "Cihaz kategori",
+        "test": "Test",
+        "expert": "Uzman",
+        "startDate": "Başlangıç tarih"
+      },
+      "actions": {
+        "detail": "Detay",
+        "delete": "Sil"
+      }
+    },
+    "make": {
+      "title": "Rezervasyon Yap",
+      "statusOpen": "Rezervasyon Açık",
+      "breadcrumbRoot": "Rezervasyonlar",
+      "fields": {
+        "packageType": "Paket tipi",
+        "customer": "Müşteri",
+        "pack": "Paket",
+        "priority": "Öncelik"
+      },
+      "packageType": {
+        "work": "İş paketi",
+        "production": "Üretim paketi"
+      },
+      "select": {
+        "expert": "Uzman Seçiniz",
+        "device": "Cihaz Seçiniz"
+      },
+      "selectAll": "Tümünü seç",
+      "placeholders": {
+        "start": "Başlangıç tarih/saat",
+        "end": "Bitiş tarih/saat"
+      },
+      "priority": {
+        "normal": "Normal Öncelik",
+        "high": "Yüksek Öncelik"
+      },
+      "actions": {
+        "close": "Kapat"
+      }
+    }
+  },
+  "settings": {
+    "breadcrumbRoot": "Ayarlar",
+    "title": "Sistem Ayarları",
+    "savedMock": "Ayarlar kaydedildi (mock).",
+    "fields": {
+      "email": "E-posta",
+      "emailPassword": "E-posta şifre",
+      "emailServer": "E-posta server",
+      "port": "Port",
+      "adminMail": "Admin mail",
+      "urgencyRate": "Aciliyet oran",
+      "euroRate": "Euro kur",
+      "usdRate": "Usd kur"
+    },
+    "actions": {
+      "save": "Kaydet"
+    }
+  },
+  "cost": {
+    "breadcrumbRoot": "Maliyet",
+    "testPricing": {
+      "title": "Test Fiyatlandırma",
+      "filters": {
+        "lab": "Cihaz laboratuvarları",
+        "labPlaceholder": "Seçiniz",
+        "keyword": "Anahtar kelime",
+        "keywordPlaceholder": "örn. 3039"
+      },
+      "actions": {
+        "filter": "Filtre",
+        "excel": "Excel"
+      },
+      "table": {
+        "deviceCategory": "Cihaz kategori",
+        "name": "Adı",
+        "batchInfo": "Batch bilgisi",
+        "cost": "Maliyet",
+        "actions": ""
+      },
+      "rowActions": {
+        "link": "Bağla",
+        "copy": "Kopyala",
+        "edit": "Düzenle",
+        "delete": "Sil"
+      }
+    }
+  }
+}

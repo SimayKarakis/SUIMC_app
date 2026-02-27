@@ -1,0 +1,180 @@
+/* Sayfanın arka planı */
+.register-page {
+  width: 100vw;
+  height: 100vh;
+  background: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  color: #333;
+  position: relative;
+}
+
+/* Sol üst başlık */
+.register-page-title {
+  position: absolute;
+  top: 24px;
+  left: 60px;
+  font-size: 18px;
+  color: #a0a0a0;
+}
+
+/* ---------- STEP 1: TİP SEÇ ---------- */
+
+.register-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-type-card {
+  width: 70%;
+  max-width: 900px;
+  border: 1px solid #d2d2d2;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.register-type-header {
+  padding: 10px 20px;
+  background: #dcdcdc;
+  border-bottom: 1px solid #cfcfcf;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.register-type-body {
+  padding: 40px 60px 50px;
+  display: flex;
+  justify-content: center;
+  gap: 160px;
+}
+
+.type-button {
+  width: 220px;
+  height: 80px;
+  border-radius: 3px;
+  border: none;
+  background: #5f3c3c;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.back-to-login-link {
+  margin-top: 20px;
+  border: none;
+  background: none;
+  font-size: 12px;
+  color: #4a90e2;
+  cursor: pointer;
+}
+
+/* ---------- STEP 2: FORM ---------- */
+
+.register-form-wrapper {
+  width: 85%;
+  max-width: 980px;
+  margin: 80px auto 0;
+  border: 1px solid #e0e0e0;
+  background: #ffffff;
+}
+
+/* Her bölüm */
+.register-form-section {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Gri başlık alanları */
+.register-form-header {
+  padding: 10px 20px;
+  background: #dcdcdc;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.register-form-header.with-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.register-form-subheader {
+  padding: 10px 20px;
+  background: #f0f0f0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* İç body */
+.register-form-body {
+  padding: 18px 30px 24px;
+}
+
+/* Form alanları */
+.reg-form-group {
+  margin-bottom: 18px;
+}
+
+.reg-label {
+  display: block;
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.reg-input {
+  width: 100%;
+  height: 32px;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 2px;
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.reg-input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 1px rgba(74, 144, 226, 0.2);
+}
+
+.reg-input[type="text"],
+.reg-input[type="email"],
+.reg-input[type="tel"] {
+  background: #fcfcfc;
+}
+
+/* Geri butonu */
+.reg-back-button {
+  height: 26px;
+  padding: 0 16px;
+  border-radius: 3px;
+  border: none;
+  background: #4f5f6d;
+  color: #ffffff;
+  font-size: 12px;
+  cursor: pointer;
+}
+.register-bottom-actions {
+  width: 100%;
+  padding: 20px 30px 30px;
+  display: flex;
+  justify-content: flex-end;
+  background: #ffffff;
+  border-top: 1px solid #e0e0e0;
+}
+
+.register-bottom-actions .reg-back-button {
+  height: 30px;
+  padding: 0 16px;
+  border-radius: 3px;
+  border: none;
+  background: #4f5f6d;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+}
