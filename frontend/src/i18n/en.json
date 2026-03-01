@@ -24,19 +24,47 @@
     "externalCustomer": "External Customer",
     "internalCustomer": "Internal Customer",
     "backToLogin": "<< Back to login screen",
+    "internalHelp": "Use this option if you are a Sabancı University student or academic staff. You can register with your institutional email (@sabanciuniv.edu).",
+    "externalHelp": "Use this option if you are a Kordsa employee or an employee of a partner organization. You can register with your institutional email.",
     "companySection": "USER / COMPANY INFORMATION",
     "companyName": "Company Name",
     "companyWebsite": "Company Website",
     "companyType": "Company Type",
     "companyIndustry": "Company Industry",
     "choose": "Select",
+    "companyTypeOpt": {
+      "company": "Company",
+      "university": "University",
+      "other": "Other"
+    },
+    "companyIndustryOpt": {
+      "education": "Education",
+      "industry": "Industry",
+      "other": "Other"
+    },
+    "universityOpt": {
+      "sabanci": "Sabanci University"
+    },
     "regHeader": "Registration",
     "firstName": "First Name",
     "lastName": "Last Name",
     "email": "Email",
     "phone": "Phone",
     "universityOptional": "If your institution is a university (optional)",
-    "back": "<< Back"
+    "submit": "Register",
+    "successMock": "Registered (mock).",
+    "validation": {
+      "companyNameRequired": "Company name is required",
+      "companyWebsiteRequired": "Company website is required",
+      "companyTypeRequired": "Please select a company type",
+      "companyIndustryRequired": "Please select a company industry",
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email",
+      "phoneRequired": "Phone is required",
+      "universityRequired": "Please select a university"
+    }
   },
   "home": {
     "pageTitle": "1 - Home",
@@ -380,6 +408,28 @@
         "copy": "Copy",
         "edit": "Edit",
         "delete": "Delete"
+      },
+      "detail": {
+        "title": "Detail",
+        "sectionTitle": "Detail",
+        "fields": {
+          "deviceCategory": "Device category",
+          "name": "Name",
+          "batchInfo": "Batch info",
+          "image": "Add image",
+          "kordsaCode": "KordSA Code",
+          "kordsaMethod": "KordSA Method",
+          "factors": "Factors",
+          "contribution": "Contribution",
+          "profitMargin": "Profit margin",
+          "accreditationMargin": "Accreditation margin",
+          "profitValue": "Profit margin"
+        },
+        "actions": {
+          "save": "Save",
+          "close": "Close"
+        },
+        "savedMock": "Saved (mock)."
       }
     }
   }

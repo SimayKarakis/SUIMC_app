@@ -3,7 +3,7 @@ import React, { useMemo, useState } from "react";
 import "./DeviceAddPage.css";
 import { createTranslator } from "../i18n";
 
-export default function DeviceAddPage({ lang = "tr", onBack, onLogout }) {
+export default function DeviceAddPage({ lang = "tr", onBack, onLogout, onCreateDevice, onSaved }) {
   const t = createTranslator(lang);
 
   const [form, setForm] = useState({
@@ -70,11 +70,25 @@ export default function DeviceAddPage({ lang = "tr", onBack, onLogout }) {
       return;
     }
 
+    const payload = {
+      name: form.name.trim(),
+      model: form.model.trim(),
+      serialNo: form.serialNo.trim(),
+      certificateInfo: form.certificateInfo.trim(),
+      suCode: form.suCode.trim(),
+      ktmmCode: form.ktmmCode.trim(),
+    };
+
+    if (onCreateDevice) onCreateDevice(payload);
+
     setBanner({
       type: "success",
       title: t("devices.add.successTitle"),
       message: t("devices.add.savedMock"),
     });
+
+    // After save, go back to list (slight delay so banner can be seen if you want)
+    if (onSaved) onSaved();
   };
 
   const fieldErrorText = (k) => {

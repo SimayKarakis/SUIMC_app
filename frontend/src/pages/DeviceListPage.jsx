@@ -36,8 +36,11 @@ const mockDevices = [
   }
 ];
 
-export default function DeviceListPage({ lang = "tr", onBackHome, onLogout }) {
+export default function DeviceListPage({ lang = "tr", devices, onBackHome, onBack, onLogout }) {
   const t = createTranslator(lang);
+
+  const sourceDevices = Array.isArray(devices) ? devices : mockDevices;
+
 
   const [filters, setFilters] = useState({
     deviceName: "",
@@ -51,7 +54,7 @@ export default function DeviceListPage({ lang = "tr", onBackHome, onLogout }) {
   const filtered = useMemo(() => {
     const q = (s) => (s || "").trim().toLowerCase();
 
-    return mockDevices.filter((d) => {
+    return sourceDevices.filter((d) => {
       const okLab = filters.lab === "all" ? true : d.lab === filters.lab;
 
       const okName = q(filters.deviceName)
@@ -105,8 +108,8 @@ export default function DeviceListPage({ lang = "tr", onBackHome, onLogout }) {
         </div>
 
         <div className="dl-actionsTop">
-          {onBackHome && (
-            <button className="dl-topBtn" type="button" onClick={onBackHome}>
+          {(onBackHome || onBack) && (
+            <button className="dl-topBtn" type="button" onClick={onBackHome || onBack}>
               ← {t("home.menu.home")}
             </button>
           )}

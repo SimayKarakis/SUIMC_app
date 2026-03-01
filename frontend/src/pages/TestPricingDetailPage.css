@@ -1,0 +1,37 @@
+/* src/pages/TestPricingDetailPage.css */
+.tpd-page { padding: 18px 22px; }
+.tpd-header { display:flex; align-items:center; justify-content:space-between; margin-bottom: 12px; }
+.tpd-breadcrumb { font-size: 14px; color:#7a7a7a; }
+.tpd-crumb { color:#7a7a7a; }
+.tpd-crumb.link { cursor:pointer; color:#6a6a6a; }
+.tpd-crumb.active { color:#222; font-weight:600; }
+.tpd-sep { margin: 0 8px; color:#b5b5b5; }
+.tpd-actionsTop { display:flex; gap:10px; }
+.tpd-topBtn { padding:8px 12px; border:1px solid #e5e5e5; background:#fff; border-radius:10px; cursor:pointer; }
+
+.tpd-card { background:#fff; border:1px solid #eee; border-radius:12px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,.06); }
+.tpd-cardTitle { background:#d8d8d8; padding:14px 18px; font-size:18px; font-weight:700; color:#222; border-bottom:1px solid #cfcfcf; }
+
+.tpd-row { padding: 12px 18px; display:flex; flex-direction:column; gap:6px; }
+.tpd-grid2 { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 0 18px; }
+.tpd-grid2 .tpd-row { padding: 12px 0; }
+
+.tpd-label { display:inline-block; width:max-content; padding:4px 8px; border-radius:3px; color:#fff; font-size:12px; font-weight:600; }
+.tpd-label.green { background:#2bb673; }
+.tpd-label.orange { background:#f5a623; }
+
+.tpd-input { height: 36px; border:1px solid #e0e0e0; border-radius:4px; padding: 6px 10px; font-size:14px; }
+.tpd-fileWrap { display:flex; flex-direction:column; gap:6px; }
+.tpd-fileName { font-size:12px; color:#6b6b6b; }
+
+.tpd-tags { display:flex; gap:8px; flex-wrap:wrap; }
+.tpd-tag { display:inline-flex; align-items:center; gap:8px; background:#63c6e3; color:#fff; border-radius:4px; padding:6px 10px; font-size:12px; }
+.tpd-tagX { border:none; background:transparent; color:#fff; cursor:pointer; font-size:14px; line-height:1; }
+
+.tpd-checks { display:flex; flex-direction:column; gap:8px; padding-top: 4px; }
+.tpd-check { display:flex; align-items:center; gap:8px; font-size:14px; color:#333; }
+
+.tpd-actions { display:flex; gap:12px; padding: 16px 18px 18px; }
+.tpd-btn { padding:10px 14px; border:none; border-radius:6px; cursor:pointer; font-weight:600; }
+.tpd-btn.save { background:#4d4d4d; color:#fff; }
+.tpd-btn.close { background:#6b3a3a; color:#fff; }

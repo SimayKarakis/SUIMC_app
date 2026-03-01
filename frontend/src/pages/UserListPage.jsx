@@ -3,46 +3,15 @@ import React, { useMemo, useState } from "react";
 import "./UserListPage.css";
 import { createTranslator } from "../i18n";
 
-const mockUsers = [
-  {
-    id: 1,
-    firstName: "Ahmet",
-    lastName: "Demirelli",
-    username: "ahmetdemirelli",
-    company: "Sabancı Ünivers...",
-    customerType: "internal",
-    status: "active",
-    email: "ahmet.demirelli@sabanciuniv.edu",
-  },
-  {
-    id: 2,
-    firstName: "Aslı",
-    lastName: "Yarım",
-    username: "asliyarim",
-    company: "KordSA",
-    customerType: "external",
-    status: "active",
-    email: "asli.yarim@kordsa.com",
-  },
-  {
-    id: 3,
-    firstName: "Simay",
-    lastName: "Karakış",
-    username: "simaykarakis",
-    company: "Sabancı Ünivers...",
-    customerType: "internal",
-    status: "passive",
-    email: "simay.karakis@sabanciuniv.edu",
-  },
-];
-
 export default function UserListPage({
   lang = "tr",
-  // ✅ App.jsx genelde onBack gönderiyor; eski kodla uyum için ikisini de destekliyoruz
+  users = [],
   onBack,
-  onBackHome,
+  onBackHome, // eski uyumluluk
   onLogout,
   onViewUser,
+  onGoAddUser,
+  onDeleteUser,
 }) {
   const t = createTranslator(lang);
 
@@ -55,7 +24,7 @@ export default function UserListPage({
   const filteredUsers = useMemo(() => {
     const nameQuery = filters.name.trim().toLowerCase();
 
-    return mockUsers.filter((u) => {
+    return (users || []).filter((u) => {
       const matchesType =
         filters.userType === "all" ? true : u.customerType === filters.userType;
 
@@ -65,29 +34,31 @@ export default function UserListPage({
       const matchesName =
         nameQuery.length === 0
           ? true
-          : `${u.firstName} ${u.lastName} ${u.username} ${u.company}`
+          : `${u.firstName} ${u.lastName} ${u.username} ${u.company || ""}`
               .toLowerCase()
               .includes(nameQuery);
 
       return matchesType && matchesStatus && matchesName;
     });
-  }, [filters]);
+  }, [filters, users]);
 
   const onSearch = (e) => {
     e.preventDefault();
   };
 
   const onExcel = () => alert(t("users.list.excelNotReady"));
-  const onAddUser = () => alert(t("users.list.addUserNotReady"));
 
-  const onEdit = (id) => alert(t("users.list.action.edit") + ` (id=${id})`);
-  const onDelete = (id) => alert(t("users.list.action.delete") + ` (id=${id})`);
-
-  // ✅ tek noktadan geri dönüş (hangisi geldiyse)
-  const handleBackHome = () => {
-    if (onBack) return onBack();
-    if (onBackHome) return onBackHome();
+  const handleAddUser = () => {
+    if (onGoAddUser) onGoAddUser();
+    else alert(t("users.list.addUserNotReady"));
   };
+
+  const handleDelete = (id) => {
+    // istersen confirm ekleyebiliriz ama şimdilik direkt siliyor
+    if (onDeleteUser) onDeleteUser(id);
+  };
+
+  const backHandler = onBack || onBackHome;
 
   return (
     <div className="page">
@@ -100,16 +71,11 @@ export default function UserListPage({
         </div>
 
         <div className="pageActions">
-          {(onBack || onBackHome) && (
-            <button
-              type="button"
-              className="btn btnBack"
-              onClick={handleBackHome}
-            >
+          {backHandler && (
+            <button type="button" className="btn btnBack" onClick={backHandler}>
               ← {t("home.menu.home")}
             </button>
           )}
-
           {onLogout && (
             <button type="button" className="btn btnLogout" onClick={onLogout}>
               {t("home.menu.logout")}
@@ -184,7 +150,7 @@ export default function UserListPage({
             {t("common.excel")}
           </button>
 
-          <button type="button" className="btn btnAdd" onClick={onAddUser}>
+          <button type="button" className="btn btnAdd" onClick={handleAddUser}>
             <span className="plus">+</span> {t("users.list.addUser")}
           </button>
         </form>
@@ -217,8 +183,8 @@ export default function UserListPage({
                     <td>{u.firstName}</td>
                     <td>{u.lastName}</td>
                     <td>{u.username}</td>
-                    <td className="truncate" title={u.company}>
-                      {u.company}
+                    <td className="truncate" title={u.company || ""}>
+                      {u.company || "-"}
                     </td>
                     <td>
                       {u.customerType === "internal"
@@ -232,7 +198,6 @@ export default function UserListPage({
                     </td>
 
                     <td className="actionsCol">
-                      {/* ✅ VIEW -> UserDetailPage */}
                       <button
                         className="iconBtn eye"
                         onClick={() => onViewUser && onViewUser(u)}
@@ -243,20 +208,11 @@ export default function UserListPage({
                         👁
                       </button>
 
-                      {/* (opsiyonel) EDIT */}
-                      <button
-                        className="iconBtn edit"
-                        onClick={() => onEdit(u.id)}
-                        aria-label={t("users.list.action.edit")}
-                        type="button"
-                        title={t("users.list.action.edit")}
-                      >
-                        ✎
-                      </button>
+                      {/* ✅ edit removed */}
 
                       <button
                         className="iconBtn trash"
-                        onClick={() => onDelete(u.id)}
+                        onClick={() => handleDelete(u.id)}
                         aria-label={t("users.list.action.delete")}
                         type="button"
                         title={t("users.list.action.delete")}

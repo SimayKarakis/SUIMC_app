@@ -24,19 +24,47 @@
     "externalCustomer": "Dış Müşteri",
     "internalCustomer": "İç Müşteri",
     "backToLogin": "<< Login ekranına dön",
+    "internalHelp": "Sabancı Üniversitesi öğrencisi veya akademik personeliyseniz bu seçeneği kullanın. Kurumsal e-posta adresiniz (@sabanciuniv.edu) ile kayıt olabilirsiniz.",
+    "externalHelp": "Kordsa çalışanı veya iş ortağı kurumlardan birinin çalışanıysanız bu seçeneği kullanın. Kurumsal e-posta adresinizle kayıt olabilirsiniz.",
     "companySection": "KULLANICI / ŞİRKET BİLGİLERİ",
     "companyName": "Şirket Adı",
     "companyWebsite": "Şirket Web Sitesi",
     "companyType": "Şirket Türü",
     "companyIndustry": "Şirket Endüstrisi",
     "choose": "Seçiniz",
+    "companyTypeOpt": {
+      "company": "Şirket",
+      "university": "Üniversite",
+      "other": "Diğer"
+    },
+    "companyIndustryOpt": {
+      "education": "Eğitim",
+      "industry": "Sanayi",
+      "other": "Diğer"
+    },
+    "universityOpt": {
+      "sabanci": "Sabancı Üniversitesi"
+    },
     "regHeader": "Kayıt",
     "firstName": "Ad",
     "lastName": "Soyad",
     "email": "E-posta",
     "phone": "Telefon",
     "universityOptional": "Kurumunuz üniversite ise (isteğe bağlı)",
-    "back": "<< Geri"
+    "submit": "Kayıt Ol",
+    "successMock": "Kayıt başarılı (mock).",
+    "validation": {
+      "companyNameRequired": "Şirket adı zorunludur",
+      "companyWebsiteRequired": "Web sitesi zorunludur",
+      "companyTypeRequired": "Şirket türü seçmelisiniz",
+      "companyIndustryRequired": "Şirket endüstrisi seçmelisiniz",
+      "firstNameRequired": "Ad zorunludur",
+      "lastNameRequired": "Soyad zorunludur",
+      "emailRequired": "E-posta zorunludur",
+      "emailInvalid": "Geçerli bir e-posta giriniz",
+      "phoneRequired": "Telefon zorunludur",
+      "universityRequired": "Üniversite seçmelisiniz"
+    }
   },
   "home": {
     "pageTitle": "1 - Anasayfa",
@@ -380,6 +408,28 @@
         "copy": "Kopyala",
         "edit": "Düzenle",
         "delete": "Sil"
+      },
+      "detail": {
+        "title": "Detay",
+        "sectionTitle": "Detay",
+        "fields": {
+          "deviceCategory": "Cihaz kategori",
+          "name": "Adı",
+          "batchInfo": "Batch bilgisi",
+          "image": "Resim ekle",
+          "kordsaCode": "KordSA Kod",
+          "kordsaMethod": "KordSA Metod",
+          "factors": "Faktörler",
+          "contribution": "Katkı payı",
+          "profitMargin": "Kar marjı",
+          "accreditationMargin": "Akreditasyon Marjı",
+          "profitValue": "Kar marjı"
+        },
+        "actions": {
+          "save": "Kaydet",
+          "close": "Kapat"
+        },
+        "savedMock": "Kaydedildi (mock)."
       }
     }
   }

@@ -1,50 +1,71 @@
-// src/pages/UserDetailPage.jsx
+// src/pages/UserAddPage.jsx
 import React, { useMemo, useState } from "react";
-import "./UserDetailPage.css";
+import "./UserDetailPage.css"; // reuse exact same UI
 import { createTranslator } from "../i18n";
 
-/**
- * Backward-compatible props:
- * - initialUser (used by App.jsx)
- * - user (older usage)
- */
-export default function UserDetailPage({
-  lang = "tr",
-  initialUser,
-  user,
-  onBack,
-}) {
+export default function UserAddPage({ lang = "tr", onBack, onCreateUser }) {
   const t = createTranslator(lang);
 
-  const initial = useMemo(() => {
-    const u = initialUser || user || {};
-    return {
-      firstName: u.firstName || "",
-      lastName: u.lastName || "",
-      username: u.username || "",
-      // Detail screen shows masked password (no edit here)
-      password: "************",
-      email: u.email || "",
-      customerType: u.customerType || "internal", // internal | external
-      projectCode: u.projectCode || "",
-      phone: u.phone || "",
-      address: u.address || "",
-      allUnit: u.companyName || u.company || t("users.detail.allOption"),
-      department: u.department || "",
-      lastLogin: u.lastLogin || "",
-      companyName: u.companyName || u.company || "",
-      companyWebsite: u.companyWebsite || "",
-      companyIndustry: u.companyIndustry || "education", // education | industry | other
-      companyType: u.companyType || "university", // university | company | other
-    };
-  }, [initialUser, user, t]);
+  const initial = useMemo(
+    () => ({
+      firstName: "",
+      lastName: "",
+      username: "",
+      password: "",
+      email: "",
+      customerType: "internal",
+      projectCode: "",
+      phone: "",
+      address: "",
+      allUnit: t("users.detail.allOption"),
+      department: "",
+      lastLogin: "",
+      companyName: "",
+      companyWebsite: "",
+      companyIndustry: "education",
+      companyType: "university",
+      status: "active",
+    }),
+    [t]
+  );
 
   const [form, setForm] = useState(initial);
 
   const update = (key, value) => setForm((p) => ({ ...p, [key]: value }));
 
   const onCancel = () => onBack && onBack();
-  const onUpdate = () => alert(t("users.detail.updated"));
+
+  const onCreate = () => {
+    // minimal validation
+    if (!form.firstName.trim() || !form.lastName.trim() || !form.username.trim()) {
+      alert(t("users.add.requiredFields"));
+      return;
+    }
+
+    const payload = {
+      firstName: form.firstName.trim(),
+      lastName: form.lastName.trim(),
+      username: form.username.trim(),
+      password: form.password,
+      email: form.email.trim(),
+      phone: form.phone.trim(),
+      address: form.address.trim(),
+      customerType: form.customerType,
+      projectCode: form.projectCode.trim(),
+      department: form.department.trim(),
+      lastLogin: "",
+
+      // list pages use u.company for truncated display - we keep it in sync
+      company: (form.companyName || "").trim(),
+      companyName: (form.companyName || "").trim(),
+      companyWebsite: form.companyWebsite.trim(),
+      companyIndustry: form.companyIndustry,
+      companyType: form.companyType,
+      status: form.status,
+    };
+
+    if (onCreateUser) onCreateUser(payload);
+  };
 
   return (
     <div className="ud-page">
@@ -54,7 +75,7 @@ export default function UserDetailPage({
           <span className="ud-sep">/</span>
           <span className="ud-crumb">{t("users.list.title")}</span>
           <span className="ud-sep">/</span>
-          <span className="ud-crumb active">{t("users.detail.title")}</span>
+          <span className="ud-crumb active">{t("home.menu.addUser")}</span>
         </div>
       </div>
 
@@ -90,11 +111,17 @@ export default function UserDetailPage({
           </div>
         </div>
 
-        {/* Şifre */}
+        {/* Şifre (add screen editable) */}
         <div className="ud-row">
           <div className="ud-label">{t("users.detail.password")}</div>
           <div className="ud-field">
-            <input className="ud-input" value={form.password} readOnly />
+            <input
+              className="ud-input"
+              type="password"
+              value={form.password}
+              onChange={(e) => update("password", e.target.value)}
+              placeholder={t("users.add.passwordPlaceholder")}
+            />
           </div>
         </div>
 
@@ -174,8 +201,8 @@ export default function UserDetailPage({
               value={form.allUnit}
               onChange={(e) => update("allUnit", e.target.value)}
             >
-              <option value={form.allUnit || t("users.detail.allOption")}>
-                {form.allUnit || t("users.detail.allOption")}
+              <option value={t("users.detail.allOption")}>
+                {t("users.detail.allOption")}
               </option>
             </select>
           </div>
@@ -193,7 +220,7 @@ export default function UserDetailPage({
           </div>
         </div>
 
-        {/* Son giriş */}
+        {/* Son giriş (add screen: empty/readonly) */}
         <div className="ud-row">
           <div className="ud-label">{t("users.detail.lastLogin")}</div>
           <div className="ud-field">
@@ -267,8 +294,8 @@ export default function UserDetailPage({
           <button className="ud-btn cancel" type="button" onClick={onCancel}>
             {t("common.cancel")}
           </button>
-          <button className="ud-btn update" type="button" onClick={onUpdate}>
-            {t("common.update")}
+          <button className="ud-btn update" type="button" onClick={onCreate}>
+            {t("common.create")}
           </button>
         </div>
       </div>

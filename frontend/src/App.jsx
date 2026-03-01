@@ -3,45 +3,143 @@ import React, { useMemo, useState, useCallback } from "react";
 import "./App.css";
 import { createTranslator } from "./i18n";
 
-// Pages
+// Auth Pages
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 
+// Pages
 import HomePage from "./pages/HomePage";
 import RequestListPage from "./pages/RequestListPage";
 import ReservationMakePage from "./pages/ReservationMakePage";
 import ReservationListPage from "./pages/ReservationListPage";
 import UserListPage from "./pages/UserListPage";
 import UserDetailPage from "./pages/UserDetailPage";
+import UserAddPage from "./pages/UserAddPage";
 import DeviceListPage from "./pages/DeviceListPage";
-import DeviceAddPage from "./pages/DeviceAddPage"; // ✅ EKLENDİ
+import DeviceAddPage from "./pages/DeviceAddPage";
 import SettingsPage from "./pages/SettingsPage";
 import TestPricingPage from "./pages/TestPricingPage";
+import TestPricingDetailPage from "./pages/TestPricingDetailPage";
+
+// ===== mock users =====
+const initialUsers = [
+  {
+    id: 1,
+    firstName: "Ahmet",
+    lastName: "Demirelli",
+    username: "ahmetdemirelli",
+    password: "",
+    email: "ahmet.demirelli@sabanciuniv.edu",
+    phone: "",
+    address: "",
+    customerType: "internal",
+    projectCode: "",
+    department: "",
+    lastLogin: "",
+    company: "Sabancı Ünivers...",
+    companyName: "Sabancı University (Istanbul)",
+    companyWebsite: "",
+    companyIndustry: "education",
+    companyType: "university",
+    status: "active",
+  },
+  {
+    id: 2,
+    firstName: "Aslı",
+    lastName: "Yarım",
+    username: "asliyarim",
+    password: "",
+    email: "asli.yarim@kordsa.com",
+    phone: "",
+    address: "",
+    customerType: "external",
+    projectCode: "",
+    department: "",
+    lastLogin: "",
+    company: "KordSA",
+    companyName: "KordSA",
+    companyWebsite: "",
+    companyIndustry: "industry",
+    companyType: "company",
+    status: "active",
+  },
+  {
+    id: 3,
+    firstName: "Simay",
+    lastName: "Karakış",
+    username: "simaykarakis",
+    password: "",
+    email: "simay.karakis@sabanciuniv.edu",
+    phone: "",
+    address: "",
+    customerType: "internal",
+    projectCode: "",
+    department: "",
+    lastLogin: "",
+    company: "Sabancı Ünivers...",
+    companyName: "Sabancı University (Istanbul)",
+    companyWebsite: "",
+    companyIndustry: "education",
+    companyType: "university",
+    status: "passive",
+  },
+];
+
+// ===== mock devices =====
+const initialDevices = [
+  {
+    id: 1,
+    name: "PCR Cihazı",
+    model: "BioRad T100",
+    serialNo: "SN-10001",
+    suCode: "SU-001",
+    ktmmCode: "KTMM-9001",
+    certificateInfo: "ISO 17025",
+    lab: "lab1",
+  },
+  {
+    id: 2,
+    name: "Mikroskop",
+    model: "Olympus CX23",
+    serialNo: "SN-20002",
+    suCode: "SU-014",
+    ktmmCode: "KTMM-9020",
+    certificateInfo: "Kalibrasyon Var",
+    lab: "lab2",
+  },
+  {
+    id: 3,
+    name: "Santrifüj",
+    model: "Eppendorf 5424",
+    serialNo: "SN-30003",
+    suCode: "SU-021",
+    ktmmCode: "KTMM-9102",
+    certificateInfo: "Sertifika Yok",
+    lab: "lab1",
+  },
+];
 
 export default function App() {
   const [lang, setLang] = useState("tr");
   const t = useMemo(() => createTranslator(lang), [lang]);
 
+  // ✅ auth flow
   const [isAuthed, setIsAuthed] = useState(false);
-  const [page, setPage] = useState("login");
+  const [page, setPage] = useState("login"); // ✅ start with login
+
+  // shared state
+  const [users, setUsers] = useState(initialUsers);
+  const [devices, setDevices] = useState(initialDevices);
+
+  // selected items
   const [selectedUser, setSelectedUser] = useState(null);
-
-  const [openGroups, setOpenGroups] = useState({
-    usersRoot: true,
-    requestsRoot: true,
-    devicesRoot: true,
-    reservationsRoot: true,
-    costRoot: true,
-    settingsRoot: true,
-  });
-
-  const toggleGroup = useCallback((k) => {
-    setOpenGroups((p) => ({ ...p, [k]: !p[k] }));
-  }, []);
+  const [selectedTestPricing, setSelectedTestPricing] = useState(null);
 
   const onLogout = useCallback(() => {
+    // gerçek projede token temizlersin; biz mock
     setIsAuthed(false);
     setSelectedUser(null);
+    setSelectedTestPricing(null);
     setPage("login");
   }, []);
 
@@ -50,6 +148,7 @@ export default function App() {
     setPage("home");
   }, []);
 
+  // ===== sidebar menu =====
   const menu = useMemo(
     () => [
       { key: "home", label: t("home.menu.home") },
@@ -58,7 +157,7 @@ export default function App() {
         label: t("home.menu.users"),
         children: [
           { key: "usersList", label: t("home.menu.userList") },
-          { key: "addUser", label: t("home.menu.addUser"), disabled: true },
+          { key: "addUser", label: t("home.menu.addUser") },
         ],
       },
       {
@@ -71,7 +170,6 @@ export default function App() {
         label: t("home.menu.devices"),
         children: [
           { key: "devicesList", label: t("home.menu.deviceList") },
-          // ✅ ARTIK TIKLANABİLİR
           { key: "addDevice", label: t("home.menu.addDevice") },
         ],
       },
@@ -93,8 +191,6 @@ export default function App() {
         label: t("home.menu.system"),
         children: [
           { key: "settings", label: t("home.menu.settings") },
-          { key: "rules", label: t("home.menu.rules"), disabled: true },
-          { key: "languages", label: t("home.menu.languages"), disabled: true },
           { key: "logs", label: t("home.menu.logs"), disabled: true },
         ],
       },
@@ -102,14 +198,88 @@ export default function App() {
     [t]
   );
 
+  const [openGroups, setOpenGroups] = useState({
+    usersRoot: true,
+    requestsRoot: true,
+    devicesRoot: true,
+    reservationsRoot: true,
+    costRoot: true,
+    settingsRoot: true,
+  });
+
+  const toggleGroup = (k) => setOpenGroups((p) => ({ ...p, [k]: !p[k] }));
+
+  // ===== users actions =====
+  const handleViewUser = (u) => {
+    setSelectedUser(u);
+    setPage("userDetail");
+  };
+
+  const handleDeleteUser = (id) => {
+    setUsers((prev) => prev.filter((u) => u.id !== id));
+    if (selectedUser?.id === id) setSelectedUser(null);
+  };
+
+  const handleCreateUser = (newUser) => {
+    setUsers((prev) => {
+      const nextId = prev.length ? Math.max(...prev.map((x) => x.id)) + 1 : 1;
+      return [{ ...newUser, id: nextId }, ...prev];
+    });
+  };
+
+  // ===== devices actions =====
+  const handleCreateDevice = useCallback((newDevice) => {
+    setDevices((prev) => {
+      const nextId = prev.length ? Math.max(...prev.map((x) => x.id)) + 1 : 1;
+      return [{ ...newDevice, id: nextId }, ...prev];
+    });
+  }, []);
+
+  // ===== content router (authed only) =====
   const content = useMemo(() => {
     if (page === "home") return <HomePage lang={lang} />;
+
+    if (page === "usersList")
+      return (
+        <UserListPage
+          lang={lang}
+          users={users}
+          onBack={() => setPage("home")}
+          onLogout={onLogout}
+          onViewUser={handleViewUser}
+          onGoAddUser={() => setPage("addUser")}
+          onDeleteUser={handleDeleteUser}
+        />
+      );
+
+    if (page === "userDetail")
+      return (
+        <UserDetailPage
+          lang={lang}
+          onBack={() => setPage("usersList")}
+          onLogout={onLogout}
+          initialUser={selectedUser}
+        />
+      );
+
+    if (page === "addUser")
+      return (
+        <UserAddPage
+          lang={lang}
+          onBack={() => setPage("usersList")}
+          onLogout={onLogout}
+          onCreateUser={(u) => {
+            handleCreateUser(u);
+            setPage("usersList");
+          }}
+        />
+      );
 
     if (page === "requestList")
       return (
         <RequestListPage
           lang={lang}
-          onBack={() => setPage("home")}
+          onBackHome={() => setPage("home")}
           onLogout={onLogout}
         />
       );
@@ -133,44 +303,49 @@ export default function App() {
         />
       );
 
-    if (page === "usersList")
-      return (
-        <UserListPage
-          lang={lang}
-          onBack={() => setPage("home")}
-          onLogout={onLogout}
-          onViewUser={(u) => {
-            setSelectedUser(u);
-            setPage("userDetail");
-          }}
-        />
-      );
-
-    if (page === "userDetail")
-      return (
-        <UserDetailPage
-          lang={lang}
-          user={selectedUser}
-          onBack={() => setPage("usersList")}
-          onLogout={onLogout}
-        />
-      );
-
     if (page === "devicesList")
       return (
         <DeviceListPage
           lang={lang}
+          devices={devices}
           onBack={() => setPage("home")}
           onLogout={onLogout}
+          onGoAddDevice={() => setPage("addDevice")}
         />
       );
 
-    // ✅ EKLENDİ: addDevice sayfası
     if (page === "addDevice")
       return (
         <DeviceAddPage
           lang={lang}
           onBack={() => setPage("devicesList")}
+          onLogout={onLogout}
+          onCreateDevice={(d) => {
+            handleCreateDevice(d);
+            setPage("devicesList");
+          }}
+        />
+      );
+
+    if (page === "testPricing")
+      return (
+        <TestPricingPage
+          lang={lang}
+          onBack={() => setPage("home")}
+          onLogout={onLogout}
+          onViewDetail={(row) => {
+            setSelectedTestPricing(row);
+            setPage("testPricingDetail");
+          }}
+        />
+      );
+
+    if (page === "testPricingDetail")
+      return (
+        <TestPricingDetailPage
+          lang={lang}
+          initialRow={selectedTestPricing}
+          onBack={() => setPage("testPricing")}
           onLogout={onLogout}
         />
       );
@@ -184,19 +359,19 @@ export default function App() {
         />
       );
 
-    if (page === "testPricing")
-      return (
-        <TestPricingPage
-          lang={lang}
-          onBack={() => setPage("home")}
-          onLogout={onLogout}
-        />
-      );
-
     return <HomePage lang={lang} />;
-  }, [page, lang, selectedUser, onLogout]);
+  }, [
+    page,
+    lang,
+    users,
+    devices,
+    selectedUser,
+    selectedTestPricing,
+    onLogout,
+    handleCreateDevice,
+  ]);
 
-  // ✅ NOT AUTHED
+  // ✅ AUTH ROUTER
   if (!isAuthed) {
     if (page === "register") {
       return (
@@ -308,6 +483,7 @@ export default function App() {
             S
           </div>
         </div>
+
         <div className="app-content">{content}</div>
       </main>
     </div>

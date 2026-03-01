@@ -15,8 +15,8 @@ const mockRequests = [
     title: "2001 169550-FG0114009991 251-008",
     priority: "normal",
     type: "productionPackage",
-    status: "waitingApprovalLeader"
-  }
+    status: "waitingApprovalLeader",
+  },
 ];
 
 export default function RequestListPage({ lang = "tr", onBackHome, onLogout }) {
@@ -27,7 +27,7 @@ export default function RequestListPage({ lang = "tr", onBackHome, onLogout }) {
     startDate: "",
     endDate: "",
     status: "",
-    userType: ""
+    userType: "",
   });
 
   const filtered = useMemo(() => {
@@ -48,14 +48,16 @@ export default function RequestListPage({ lang = "tr", onBackHome, onLogout }) {
       const matchesEnd = !filters.endDate || true;
 
       return (
-        matchesName && matchesStatus && matchesUserType && matchesStart && matchesEnd
+        matchesName &&
+        matchesStatus &&
+        matchesUserType &&
+        matchesStart &&
+        matchesEnd
       );
     });
   }, [filters]);
 
-  const onFilter = (e) => {
-    e.preventDefault();
-  };
+  const onFilter = (e) => e.preventDefault();
 
   const onClear = () => {
     setFilters({
@@ -63,15 +65,17 @@ export default function RequestListPage({ lang = "tr", onBackHome, onLogout }) {
       startDate: "",
       endDate: "",
       status: "",
-      userType: ""
+      userType: "",
     });
   };
 
   const onExcel = () => alert(t("requests.list.excelNotReady"));
+
+  // ✅ FIX: JSON’da mevcut olan key’ler
   const onDetail = (id) =>
-    alert(t("requests.list.actions.detail") + ` (id=${id})`);
+    alert(t("requests.list.buttons.detail") + ` (id=${id})`);
   const onDelete = (id) =>
-    alert(t("requests.list.actions.delete") + ` (id=${id})`);
+    alert(t("requests.list.buttons.delete") + ` (id=${id})`);
 
   const statusLabel = (s) => {
     if (s === "waitingApprovalLeader")
@@ -120,13 +124,17 @@ export default function RequestListPage({ lang = "tr", onBackHome, onLogout }) {
             <input
               className="rl-input"
               value={filters.name}
-              onChange={(e) => setFilters((p) => ({ ...p, name: e.target.value }))}
+              onChange={(e) =>
+                setFilters((p) => ({ ...p, name: e.target.value }))
+              }
               placeholder={t("requests.list.filters.namePlaceholder")}
             />
           </div>
 
           <div className="rl-field">
-            <label className="rl-label">{t("requests.list.filters.startDate")}</label>
+            <label className="rl-label">
+              {t("requests.list.filters.startDate")}
+            </label>
             <input
               className="rl-input"
               value={filters.startDate}
@@ -138,7 +146,9 @@ export default function RequestListPage({ lang = "tr", onBackHome, onLogout }) {
           </div>
 
           <div className="rl-field">
-            <label className="rl-label">{t("requests.list.filters.endDate")}</label>
+            <label className="rl-label">
+              {t("requests.list.filters.endDate")}
+            </label>
             <input
               className="rl-input"
               value={filters.endDate}
@@ -150,11 +160,15 @@ export default function RequestListPage({ lang = "tr", onBackHome, onLogout }) {
           </div>
 
           <div className="rl-field">
-            <label className="rl-label">{t("requests.list.filters.status")}</label>
+            <label className="rl-label">
+              {t("requests.list.filters.status")}
+            </label>
             <select
               className="rl-select"
               value={filters.status}
-              onChange={(e) => setFilters((p) => ({ ...p, status: e.target.value }))}
+              onChange={(e) =>
+                setFilters((p) => ({ ...p, status: e.target.value }))
+              }
             >
               <option value="">{t("common.choose")}</option>
               <option value="waitingApprovalLeader">
@@ -164,7 +178,9 @@ export default function RequestListPage({ lang = "tr", onBackHome, onLogout }) {
           </div>
 
           <div className="rl-field">
-            <label className="rl-label">{t("requests.list.filters.userType")}</label>
+            <label className="rl-label">
+              {t("requests.list.filters.userType")}
+            </label>
             <input
               className="rl-input"
               value={filters.userType}
@@ -229,20 +245,21 @@ export default function RequestListPage({ lang = "tr", onBackHome, onLogout }) {
                   <td>{priorityLabel(r.priority)}</td>
                   <td>{typeLabel(r.type)}</td>
                   <td>{statusLabel(r.status)}</td>
+
                   <td className="rl-actionsCol">
                     <button
                       type="button"
                       className="rl-miniBtn detail"
                       onClick={() => onDetail(r.id)}
                     >
-                      {t("requests.list.actions.detail")}
+                      {t("requests.list.buttons.detail")}
                     </button>
                     <button
                       type="button"
                       className="rl-miniBtn delete"
                       onClick={() => onDelete(r.id)}
                     >
-                      {t("requests.list.actions.delete")}
+                      {t("requests.list.buttons.delete")}
                     </button>
                   </td>
                 </tr>
